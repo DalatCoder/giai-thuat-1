@@ -27,7 +27,11 @@ struct NhanVien
 
 int DocDanhSachNhanVien(char* filename, NhanVien a[], int& n);
 void Xuat_DS_NV(NhanVien a[], int n);
-
+void TimKiem_NS(NhanVien a[], int n, unsigned int namSinh);
+void TimKiem_NS_Luong(NhanVien a[], int n, unsigned int namSinh, unsigned int luong);
+void TimKiem_HoTen(NhanVien a[], int n, Name name, unsigned int nam);
+void TimKiem_Ten_DiaChi(NhanVien a[], int n, Name name, char diaChi[]);
+int  TinhChieuDaiChuoi(char a[]);
 
 int DocDanhSachNhanVien(char *filename, NhanVien a[], int &n)
 {
@@ -111,3 +115,134 @@ void Xuat_DS_NV(NhanVien a[], int n)
 	XuatDuongKe('=');
 }
 
+void TimKiem_NS(NhanVien a[], int n, unsigned int namSinh)
+{
+	int m = 0;
+	NhanVien b[MAX];
+
+	for (int i = 0; i < n; i++)
+		if (a[i].date.nam == namSinh)
+		{
+			b[m] = a[i];
+			m++;
+		}
+
+	if (m == 0)
+		cout << "\nKhong tim thay nhan vien co nam sinh: " << namSinh << endl;
+	else
+	{
+		cout << "\nDa tim thay " << m << " nhan vien co nam sinh: " << namSinh << endl;
+		
+		// Xuat danh sach nhan vien tim thay
+		XuatTieuDe();
+		for (int i = 0; i < m; i++)
+		{
+			Xuat_1_NV(b[i]);
+			if ((i + 1) % 3 == 0)
+				XuatDuongKe('-');
+		}
+		XuatDuongKe('=');
+	}
+}
+
+void TimKiem_NS_Luong(NhanVien a[], int n, unsigned int namSinh, unsigned int luong)
+{
+	int m = 0;
+	NhanVien b[MAX];
+
+	for (int i = 0; i < n; i++)
+		if (a[i].date.nam <= namSinh && a[i].luong >= luong)
+		{
+			b[m] = a[i];
+			m++;
+		}
+
+	if (m == 0)
+		cout << "\nKhong tim thay nhan vien co nam sinh <= " << namSinh << " va co muc luong >= " << luong  << endl;
+	else
+	{
+		cout << "\nDa tim thay " << m << " nhan vien co nam sinh <= " << namSinh << " va co muc luong >= " << luong << endl;
+
+		// Xuat danh sach nhan vien tim thay
+		XuatTieuDe();
+		for (int i = 0; i < m; i++)
+		{
+			Xuat_1_NV(b[i]);
+			if ((i + 1) % 3 == 0)
+				XuatDuongKe('-');
+		}
+		XuatDuongKe('=');
+	}
+}
+
+void TimKiem_HoTen(NhanVien a[], int n, Name name, unsigned int namSinh)
+{
+	int m = 0;
+	NhanVien b[MAX];
+
+	for (int i = 0; i < n; i++)
+		if (strcmp(a[i].name.ho, name.ho)==0 && strcmp(a[i].name.ten, name.ten)==0 && a[i].date.nam < namSinh)
+		{
+			b[m] = a[i];
+			m++;
+		}
+
+	if (m == 0)
+		cout << "\nKhong tim thay nhan vien co ho " << name.ho << " va co ten " << name.ten << endl;
+	else
+	{
+		if (namSinh != 9999)
+			cout << "\nDa tim thay " << m << " nhan vien co ho " << name.ho << " va co ten " << name.ten << " va co nam sinh < " << namSinh << endl;
+		else
+			cout << "\nDa tim thay " << m << " nhan vien co ho " << name.ho << " va co ten " << name.ten << endl;
+		// Xuat danh sach nhan vien tim thay
+		XuatTieuDe();
+		for (int i = 0; i < m; i++)
+		{
+			Xuat_1_NV(b[i]);
+			if ((i + 1) % 3 == 0)
+				XuatDuongKe('-');
+		}
+		XuatDuongKe('=');
+	}
+}
+
+int  TinhChieuDaiChuoi(char a[])
+{
+	int res = 0;
+
+	while (a[res] != '\0')
+		res++;
+
+	return res;
+}
+
+void TimKiem_Ten_DiaChi(NhanVien a[], int n, Name name, char diaChi[])
+{
+	int m = 0;
+	NhanVien b[MAX];
+
+	for (int i = 0; i < n; i++)
+		if (strcmp(a[i].name.ten, name.ten) == 0 && strcmp(a[i].diaChi, diaChi) == 0)
+		{
+			b[m] = a[i];
+			m++;
+		}
+
+	if (m == 0)
+		cout << "\nKhong tim thay nhan vien co ten " << name.ten << " va co dia chi " << diaChi << endl;
+	else
+	{
+		cout << "\nDa tim thay " << m << " nhan vien co ten " << name.ten << " va co dia chi " << diaChi << endl;
+
+		// Xuat danh sach nhan vien tim thay
+		XuatTieuDe();
+		for (int i = 0; i < m; i++)
+		{
+			Xuat_1_NV(b[i]);
+			if ((i + 1) % 3 == 0)
+				XuatDuongKe('-');
+		}
+		XuatDuongKe('=');
+	}
+}

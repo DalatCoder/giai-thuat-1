@@ -41,6 +41,10 @@ void XuLyMenu(int menu, NhanVien a[], int &n)
 {
 	char filename[MAX];
 	int kq;
+	unsigned int namSinh, luong;
+	Name name;
+	char diaChi[16];
+	const int namHienTai = 2019;
 
 	system("cls");
 	switch (menu)
@@ -65,18 +69,84 @@ void XuLyMenu(int menu, NhanVien a[], int &n)
 			break;
 		case 3:
 			cout << "\n3. Tim kiem theo ho ten nhan vien";
+
+			cin.clear();
+			cin.ignore(MAX, '\n');
+			do
+			{
+				cout << "\nNhap ho cua nhan vien: (<10 ki tu) >> ";
+				cin >> name.ho;
+			} while (TinhChieuDaiChuoi(name.ho) > 10);
+			do
+			{
+				cout << "\nNhap ten cua nhan vien: (<10 ki tu) >> ";
+				cin >> name.ten;
+			} while (TinhChieuDaiChuoi(name.ten) > 10);
+
+			TimKiem_HoTen(a, n, name, 9999);
 			break;
 		case 4:
 			cout << "\n4. Tim kiem theo nam sinh";
+			do
+			{
+				cout << "\nNhap nam sinh cua nhan vien >> ";
+				cin >> namSinh;
+			} while (namSinh <= 0 || namSinh >= namHienTai || !namSinh);
+			TimKiem_NS(a, n, namSinh);
 			break;
 		case 5:
 			cout << "\n5. Tim kiem theo ho ten va nam sinh nho hon x cho truoc";
+			cin.clear();
+			cin.ignore(MAX, '\n');
+			do
+			{
+				cout << "\nNhap ho cua nhan vien: (<10 ki tu) >> ";
+				cin >> name.ho;
+			} while (TinhChieuDaiChuoi(name.ho) > 10);
+			do
+			{
+				cout << "\nNhap ten cua nhan vien: (<10 ki tu) >> ";
+				cin >> name.ten;
+			} while (TinhChieuDaiChuoi(name.ten) > 10);
+			do
+			{
+				cout << "\nNhap nam sinh cua nhan vien >> ";
+				cin >> namSinh;
+			} while (namSinh <= 0 || namSinh >= namHienTai || !namSinh);
+			TimKiem_HoTen(a, n, name, namSinh);
 			break;
 		case 6:
 			cout << "\n6. Tim kiem theo ten va dia chi";
+			do
+			{
+				cout << "\nNhap ten cua nhan vien: (<10 ki tu) >> ";
+				cin >> name.ten;
+			} while (TinhChieuDaiChuoi(name.ten) > 10);
+			do
+			{
+				cout << "\nNhap dia chi cua nhan vien: (<15 ki tu) >> ";
+				cin >> diaChi;
+			} while (TinhChieuDaiChuoi(diaChi) > 15);
+
+			TimKiem_Ten_DiaChi(a, n, name, diaChi);
 			break;
 		case 7:
 			cout << "\n7. Tim kiem theo luong >= x va nam sinh <= y";
+
+			do
+			{
+				cout << "\nNhap nam sinh cua nhan vien >> ";
+				cin >> namSinh;
+			} while (namSinh <= 0 || namSinh >= namHienTai || !namSinh);
+			TimKiem_NS(a, n, namSinh);
+
+			do
+			{
+				cout << "\nNhap luong cua nhan vien >> ";
+				cin >> luong;
+			} while (luong <= 0 || !luong);
+			
+			TimKiem_NS_Luong(a, n, namSinh, luong);
 			break;
 		case 8:
 			cout << "\n8. Tim kiem nhi phan theo ma nhan vien";
