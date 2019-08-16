@@ -10,12 +10,12 @@ void XuatMenu()
 	cout << "\n============ HE THONG CHUC NANG ===============\n";
 	cout << "\n1. Doc danh sach nhan vien tu file";
 	cout << "\n2. Xuat danh sach nhan vien";
-	cout << "\n3. Sap xep chon truc tiep";
-	cout << "\n4. Sap xep chen truc tiep";
-	cout << "\n5. Sap xep doi cho truc tiep";
-	cout << "\n6. Sap xep noi bot";
-	cout << "\n7. Sap xep chen nhi phan";
-	cout << "\n8. Radix sort";
+	cout << "\n3. Tim kiem theo ho ten nhan vien";
+	cout << "\n4. Tim kiem theo nam sinh";
+	cout << "\n5. Tim kiem theo ho ten va nam sinh nho hon x cho truoc";
+	cout << "\n6. Tim kiem theo ten va dia chi";
+	cout << "\n7. Tim kiem theo luong >= x va nam sinh <= y";
+	cout << "\n8. Tim kiem nhi phan theo ma nhan vien";
 	cout << "\n0. Thoat chuong trinh";
 }
 
@@ -64,22 +64,22 @@ void XuLyMenu(int menu, NhanVien a[], int &n)
 			Xuat_DS_NV(a, n);
 			break;
 		case 3:
-			cout << "\n3. Sap xep chon truc tiep";
+			cout << "\n3. Tim kiem theo ho ten nhan vien";
 			break;
 		case 4:
-			cout << "\n4. Sap xep chen truc tiep";
+			cout << "\n4. Tim kiem theo nam sinh";
 			break;
 		case 5:
-			cout << "\n5. Sap xep doi cho truc tiep";
+			cout << "\n5. Tim kiem theo ho ten va nam sinh nho hon x cho truoc";
 			break;
 		case 6:
-			cout << "\n6. Sap xep noi bot";
+			cout << "\n6. Tim kiem theo ten va dia chi";
 			break;
 		case 7:
-			cout << "\n7. Sap xep chen nhi phan";
+			cout << "\n7. Tim kiem theo luong >= x va nam sinh <= y";
 			break;
 		case 8:
-			cout << "\n8. Radix sort";
+			cout << "\n8. Tim kiem nhi phan theo ma nhan vien";
 			break;
 		case 0:
 			cout << "\n0. Thoat chuong trinh\n";
