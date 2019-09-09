@@ -113,6 +113,7 @@ void XuLyMenu(int menu, NhanVien a[], int &n)
 				cout << "\nNhap nam sinh cua nhan vien >> ";
 				cin >> namSinh;
 			} while (namSinh <= 0 || namSinh >= namHienTai || !namSinh);
+
 			TimKiem_HoTen(a, n, name, namSinh);
 			break;
 		case 6:

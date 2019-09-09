@@ -191,7 +191,9 @@ void TimKiem_HoTen(NhanVien a[], int n, Name name, unsigned int namSinh)
 		cout << "\nKhong tim thay nhan vien co ho " << name.ho << " va co ten " << name.ten << endl;
 	else
 	{
-		if (namSinh != 9999)
+		// namsinh == 9999 la truong hop tim kiem nhan vien theo ho ten o cau 3
+		// namsinh != 9999 tuc la tim kiem nhan vien theo ho ten va co namsinh nho hon x o cau 5
+		if (namSinh != 9999)	
 			cout << "\nDa tim thay " << m << " nhan vien co ho " << name.ho << " va co ten " << name.ten << " va co nam sinh < " << namSinh << endl;
 		else
 			cout << "\nDa tim thay " << m << " nhan vien co ho " << name.ho << " va co ten " << name.ten << endl;
