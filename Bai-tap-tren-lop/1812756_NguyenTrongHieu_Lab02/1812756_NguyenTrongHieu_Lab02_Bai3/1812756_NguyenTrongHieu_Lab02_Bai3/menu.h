@@ -48,7 +48,7 @@ void XuLyMenu(int menu, int a[], int& n)
 
 		kq = DocMang(a, n, filename);
 
-		if (!kq) 
+		if (!kq)
 		{
 			cout << "\nLoi mo tap tin (" << filename << "). Vui long kiem tra lai ten tap tin!";
 			cout << endl;
@@ -73,8 +73,6 @@ void XuLyMenu(int menu, int a[], int& n)
 		XuatMang(a, n);
 
 		ChonTrucTiep(a, n);
-		cout << "\nMang sau khi sap xep tang dan:\n";
-		XuatMang(a, n);
 		break;
 	case 4:
 		cout << "\n4. Chen truc tiep";
@@ -82,8 +80,6 @@ void XuLyMenu(int menu, int a[], int& n)
 		XuatMang(a, n);
 
 		chenTrucTiep(a, n);
-		cout << "\nMang sau khi sap xep tang dan:\n";
-		XuatMang(a, n);
 		break;
 	case 5:
 		cout << "\n5. Doi cho truc tiep";
@@ -91,8 +87,6 @@ void XuLyMenu(int menu, int a[], int& n)
 		XuatMang(a, n);
 
 		DoiChoTrucTiep(a, n);
-		cout << "\nMang sau khi sap xep tang dan:\n";
-		XuatMang(a, n);
 		break;
 	case 6:
 		cout << "\n6. Noi bot";
@@ -100,8 +94,6 @@ void XuLyMenu(int menu, int a[], int& n)
 		XuatMang(a, n);
 
 		bubbleSort(a, n);
-		cout << "\nMang sau khi sap xep tang dan:\n";
-		XuatMang(a, n);
 		break;
 	case 7:
 		cout << "\n7. Chen nhi phan";
@@ -112,4 +104,3 @@ void XuLyMenu(int menu, int a[], int& n)
 	}
 	system("pause");
 }
-
