@@ -45,6 +45,7 @@ void XuLyMenu(int menu, LIST &ls)
 {
 	char filename[MAX];
 	int kq;
+	NODE *res;
 
 	switch (menu)
 	{
@@ -68,9 +69,18 @@ void XuLyMenu(int menu, LIST &ls)
 			break;
 		case 3:
 			cout << "\n3. Tinh tong cac phan tu trong danh sach";
+			DisplayList(ls);
+			kq = CalcSum(ls);
+			cout << "\nTong cac phan tu hien tai: $" << kq << endl;
 			break;
 		case 4:
 			cout << "\n4. Tim phan tu lon nhat trong danh sach";
+			DisplayList(ls);
+			res = FindMax(ls);
+			if (!IsEmptyList(ls))
+			{
+				cout << "\nPhan tu co gia tri lon nhat: " << res->info;
+			}
 			break;
 		case 5:
 			cout << "\n5. Tim X (First node)";

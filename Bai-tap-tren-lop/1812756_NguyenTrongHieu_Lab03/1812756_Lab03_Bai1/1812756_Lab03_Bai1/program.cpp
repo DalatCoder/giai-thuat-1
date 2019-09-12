@@ -26,6 +26,4 @@ void ChayChuongTrinh()
 		menu = ChonMenu(soMenu);
 		XuLyMenu(menu, ls);
 	} while (menu > 0);
-
-	system("pause");
 }

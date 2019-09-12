@@ -27,6 +27,12 @@ void InsertTail(LIST& ls, int x);
 int GetDataFromFile(char* filename, LIST& ls);
 void DisplayList(LIST ls);
 
+// 2. Tinh toan
+int CalcSum(LIST ls); 
+
+// 3. Tim kiem
+NODE* FindMax(LIST ls);
+
 // Dinh nghia ham
 NODE* GetNode(int data)
 {
@@ -121,6 +127,51 @@ void InsertTail(LIST &ls, int x)
 		ls.pTail->pNext = new_node;
 		ls.pTail = new_node;
 	}
+}
+
+int CalcSum(LIST ls)
+{
+	int sum = 0;
+	NODE* p;
+
+	if (IsEmptyList(ls))
+	{
+		// cout << "\nDanh sach rong!";
+		return sum;
+	}
+
+	p = ls.pHead;
+	while (p != NULL)
+	{
+		sum += p->info;
+		p = p->pNext;
+	}
+
+	return sum;
+}
+
+NODE* FindMax(LIST ls)
+{
+	NODE* res; // Node chua gia tri lon nhat trong day
+	NODE* cur; // Node hien tai
+
+	if (IsEmptyList(ls))
+	{
+		// cout << "\nDanh sach rong!";
+		return NULL;
+	}
+
+	cur = ls.pHead;
+	res = ls.pHead;
+
+	while (cur != NULL)
+	{
+		if (cur->info > res->info)
+			res = cur;
+		cur = cur->pNext;
+	}
+
+	return res;
 }
 
 
