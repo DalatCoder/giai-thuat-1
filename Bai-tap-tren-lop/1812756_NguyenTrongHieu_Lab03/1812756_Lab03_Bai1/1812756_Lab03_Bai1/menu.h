@@ -44,7 +44,7 @@ int ChonMenu(int somenu)
 void XuLyMenu(int menu, LIST &ls)
 {
 	char filename[MAX];
-	int kq;
+	int kq, x;
 	NODE *res;
 
 	switch (menu)
@@ -77,16 +77,32 @@ void XuLyMenu(int menu, LIST &ls)
 			cout << "\n4. Tim phan tu lon nhat trong danh sach";
 			DisplayList(ls);
 			res = FindMax(ls);
-			if (!IsEmptyList(ls))
+			if (!res)
 			{
 				cout << "\nPhan tu co gia tri lon nhat: " << res->info;
 			}
 			break;
 		case 5:
 			cout << "\n5. Tim X (First node)";
+			cout << "\nNhap 1 so bat ki de tim kiem: ";
+			cin >> x;
+			
+			kq = Search_First_Index(ls, x);
+			if (kq == -1) cout << "\nKhong ton tai " << x << " trong danh sach.\n";
+			else cout << "\nTon tai " << x << " trong danh sach tai vi tri: " << (kq+1) << endl;
+			cout << "\nXem lai danh sach de kiem tra:\n";
+			DisplayList(ls);
 			break;
 		case 6:
 			cout << "\n6. Tim X (Final node)";
+			cout << "\nNhap 1 so bat ki de tim kiem: ";
+			cin >> x;
+
+			kq = Search_Final_Index(ls, x);
+			if (kq == -1) cout << "\nKhong ton tai " << x << " trong danh sach.\n";
+			else cout << "\nTon tai " << x << " trong danh sach tai vi tri: " << (kq+1) << endl;
+			cout << "\nXem lai danh sach de kiem tra:\n";
+			DisplayList(ls);
 			break;
 		case 7:
 			cout << "\n7. Chen X vao dau danh sach";

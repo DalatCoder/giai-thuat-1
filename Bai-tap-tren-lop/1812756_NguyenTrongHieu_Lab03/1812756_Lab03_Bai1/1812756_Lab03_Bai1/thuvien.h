@@ -32,6 +32,9 @@ int CalcSum(LIST ls);
 
 // 3. Tim kiem
 NODE* FindMax(LIST ls);
+NODE* Search_First(LIST ls, int x);
+int Search_First_Index(LIST ls, int x);
+int Search_Final_Index(LIST ls, int x);
 
 // Dinh nghia ham
 NODE* GetNode(int data)
@@ -155,12 +158,6 @@ NODE* FindMax(LIST ls)
 	NODE* res; // Node chua gia tri lon nhat trong day
 	NODE* cur; // Node hien tai
 
-	if (IsEmptyList(ls))
-	{
-		// cout << "\nDanh sach rong!";
-		return NULL;
-	}
-
 	cur = ls.pHead;
 	res = ls.pHead;
 
@@ -171,8 +168,47 @@ NODE* FindMax(LIST ls)
 		cur = cur->pNext;
 	}
 
+	return res; // res == NULL neu danh sach rong
+}
+
+NODE* Search_First(LIST ls, int x)
+{
+	NODE* res = ls.pHead;
+	while (res != NULL && res->info != x)
+		res = res->pNext;
 	return res;
 }
 
+int Search_First_Index(LIST ls, int x)
+{
+	NODE* p = ls.pHead;
+	int i = 0;
 
+	while (p != NULL && p ->info != x)
+	{
+		p = p->pNext;
+		i++;
+	}
 
+	if (!p)
+		i = -1; // khong tim thay x
+
+	return i;
+}
+
+int Search_Final_Index(LIST ls, int x)
+{
+	NODE* p = ls.pHead;
+	int i = 0, kq = -1;
+
+	while (p != NULL)
+	{
+		if (p->info == x)
+			kq = i;
+
+		p = p->pNext;
+		i++;
+	}
+
+	return kq;
+}
