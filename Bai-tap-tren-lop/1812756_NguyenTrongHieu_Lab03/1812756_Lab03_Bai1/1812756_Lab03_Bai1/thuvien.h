@@ -212,3 +212,45 @@ int Search_Final_Index(LIST ls, int x)
 
 	return kq;
 }
+
+void Insert_Begin(LIST& ls, NODE* node)
+{
+	if (IsEmptyList(ls))
+	{
+		ls.pHead = node;
+		ls.pTail = node;
+	}
+	else
+	{
+		node->pNext = ls.pHead;
+		ls.pHead = node;
+	}
+}
+
+void Insert_End(LIST& ls, NODE* node)
+{
+	if (IsEmptyList(ls))
+	{
+		ls.pHead = node;
+		ls.pTail = node;
+	}
+	else
+	{
+		ls.pTail->pNext = node;
+		ls.pTail = node;
+	}
+}
+
+void Chen_X_Sau_Y(LIST& ls, NODE* y, NODE* x)
+{
+	if (y == ls.pTail)
+	{
+		y->pNext = x;
+		ls.pTail = x;
+	}
+	else
+	{
+		x->pNext = y->pNext;
+		y->pNext = x;
+	}
+}

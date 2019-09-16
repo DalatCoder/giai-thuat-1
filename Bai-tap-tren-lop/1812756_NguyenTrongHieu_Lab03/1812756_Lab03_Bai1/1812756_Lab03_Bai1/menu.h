@@ -44,8 +44,9 @@ int ChonMenu(int somenu)
 void XuLyMenu(int menu, LIST &ls)
 {
 	char filename[MAX];
-	int kq, x;
+	int kq, x, y;
 	NODE *res;
+	NODE* node; // Tao node moi
 
 	switch (menu)
 	{
@@ -77,10 +78,7 @@ void XuLyMenu(int menu, LIST &ls)
 			cout << "\n4. Tim phan tu lon nhat trong danh sach";
 			DisplayList(ls);
 			res = FindMax(ls);
-			if (!res)
-			{
-				cout << "\nPhan tu co gia tri lon nhat: " << res->info;
-			}
+			cout << "\nPhan tu co gia tri lon nhat: " << res->info;
 			break;
 		case 5:
 			cout << "\n5. Tim X (First node)";
@@ -106,12 +104,47 @@ void XuLyMenu(int menu, LIST &ls)
 			break;
 		case 7:
 			cout << "\n7. Chen X vao dau danh sach";
+			cout << "\nMang hien tai: \n";
+			DisplayList(ls);
+			cout << "\nNhap gia tri can chen: ";
+			cin >> x;
+			node = GetNode(x);
+			Insert_Begin(ls, node);
+			cout << "\nMang sau khi chen: ";
+			DisplayList(ls);
 			break;
 		case 8:
 			cout << "\n8. Chen X vao cuoi danh sach";
+			cout << "\nMang hien tai: \n";
+			DisplayList(ls);
+			cout << "\nNhap gia tri can chen: ";
+			cin >> x;
+			node = GetNode(x);
+			Insert_End(ls, node);
+			cout << "\nMang sau khi chen: ";
+			DisplayList(ls);
 			break;
 		case 9:
 			cout << "\n9. Chen X vao sau node Y trong danh sach";
+			DisplayList(ls);
+			cout << "\nNhap vao gia tri node Y: ";
+			cin >> y;
+
+			res = Search_First(ls, y);
+			if (!res)
+			{
+				cout << "\nKhong tim thay phan tu " << y << " trong danh sach.\n";
+			}
+			else
+			{
+				cout << "\nNhap phan tu can chen: ";
+				cin >> x;
+				node = GetNode(x);
+				Chen_X_Sau_Y(ls, res, node);
+				cout << "\nMang sau khi chen :\n";
+				DisplayList(ls);
+
+			}
 			break;
 		case 10:
 			cout << "\n10. Huy nut cuoi";
