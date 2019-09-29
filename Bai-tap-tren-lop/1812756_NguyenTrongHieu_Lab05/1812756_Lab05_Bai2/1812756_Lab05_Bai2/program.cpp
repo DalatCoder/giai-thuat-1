@@ -18,9 +18,38 @@ int main()
 
 void ChayChuongTrinh()
 {
+	BSTree root = nullptr;
+	int menu, soMenu = 5;
 	char filename[50];
 	int kq;
-	BSTree root = NULL;
 
+	CreateBST(root);
+
+	while (true)
+	{
+		system("cls");
+		cout << "\nNhap ten tap tin de mo: ";
+		cin >> filename;
+
+		kq = GetDataFromFile(filename, root);
+
+		if (kq == 0) cout << "\nMo tap tin " << filename << " khong thanh cong!\n";
+		else break;
+
+		system("pause");
+
+	}
+
+	cout << "\nMo tap tin " << filename << " thanh cong!\n";
+	cout << "\nCay hien tai: \n";
+	InOrder(root);
+
+	system("pause");
+
+	do
+	{
+		menu = ChonMenu(soMenu);
+		XuLyMenu(menu, root);
+	} while (menu > 0);
 }
 

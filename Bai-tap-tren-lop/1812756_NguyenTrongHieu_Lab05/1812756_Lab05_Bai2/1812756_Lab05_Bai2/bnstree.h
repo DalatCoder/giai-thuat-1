@@ -25,6 +25,7 @@ int GetDataFromFile(char *filename, BSTree &root);
 void PreOrder(BSTree root);
 void InOrder(BSTree root);
 void PosOrder(BSTree root);
+void XuatNV(NhanVien nv);
 
 void PosOrder(BSTree root)
 {
@@ -134,4 +135,9 @@ BSNode *CreateNode(Data data)
 void CreateBST(BSTree &root)
 {
 	root = nullptr;
+}
+
+void XuatNV(NhanVien nv)
+{
+	cout << nv.maNV << "  " << nv.hoTen << "  " << nv.namsinh << "  " << nv.diaChi << "  " << nv.luong << endl;
 }

@@ -30,8 +30,10 @@ int ChonMenu(int somenu)
 void XuLyMenu(int menu, BSTree &root)
 {
 	char filename[50];
+	char maNV[10];
+	unsigned int namsinh;
 	int kq;
-
+	BSTree ketqua;
 
 	system("cls");
 	switch (menu)
@@ -62,12 +64,47 @@ void XuLyMenu(int menu, BSTree &root)
 		break;
 	case 3:
 		cout << "\n3. Tinh so nut cua cay";
+
+		kq = DemSoNut(root);
+
+		if (kq == 0) cout << "\nCay hien tai khong co nut\n";
+		else cout << "\nSo nut hien tai cua cay la: " << kq << endl;
 		break;
 	case 4:
 		cout << "\n4. Thay doi nam sinh cua nhan vien co ma so nhan vien cho truoc";
+		cout << "\nNhap vao ma nhan vien: ";
+		cin >> maNV; 
+		ketqua = Search(maNV, root);
+		if (ketqua)
+		{
+			cout << "\nThong tin cua nhan vien: \n";
+			XuatNV(ketqua->data);
+
+			cout << "\nNhap vao nam sinh: ";
+			cin >> namsinh;
+
+			ketqua->data.namsinh = namsinh;
+
+			cout << "\nThong tin nhan vien sau khi cap nhat:\n";
+			XuatNV(ketqua->data);
+		}
+		else cout << "\nKhong tim thay nhan vien co ma so: " << maNV << endl;
 		break;
 	case 5:
 		cout << "\n5. Huy nhan vien co ma nhan vien cho truoc";
+		cout << "\nNhap vao ma nhan vien: ";
+		cin >> maNV;
+
+		ketqua = Search(maNV, root);
+		if (ketqua)
+		{
+			kq = DeleteNode(maNV, root);
+
+			if (kq) cout << "\nXoa thanh cong nhan vien co maNV: " << maNV << endl;
+			else cout << "\nCo loi xay ra trong qua trinh!" << endl;
+		}
+		else cout << "\nKhong tim thay nhan vien co ma so: " << maNV << endl;
+
 		break;
 	}
 
