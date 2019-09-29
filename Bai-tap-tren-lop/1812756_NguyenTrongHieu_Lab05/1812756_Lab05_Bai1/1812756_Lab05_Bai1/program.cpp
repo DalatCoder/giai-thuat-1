@@ -11,18 +11,17 @@ void ChayChuongTrinh();
 
 int main()
 {
-  ChayChuongTrinh();
-  return 0;
+	ChayChuongTrinh();
+	return 0;
 }
 
 void ChayChuongTrinh()
 {
-  BSTree root = nullptr;
-  int menu, soMenu = 13;
-  do
-  {
-    menu = ChonMenu(soMenu);
-    XuLyMenu(menu, root);
-  } while (menu > 0);
-  cin.get();
+	BSTree root = nullptr;
+	int menu, soMenu = 13;
+	do
+	{
+		menu = ChonMenu(soMenu);
+		XuLyMenu(menu, root);
+	} while (menu > 0);
 }
