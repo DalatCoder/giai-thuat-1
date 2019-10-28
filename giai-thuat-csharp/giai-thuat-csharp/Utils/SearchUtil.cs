@@ -7,7 +7,7 @@ namespace giai_thuat_csharp
     {
         public static int LinearSearch(List<int> list, int x)
         {
-            for (int i = 0; i < list.Count; i++)
+            for (var i = 0; i < list.Count; i++)
                 if (list[i] == x)
                     return i;
             return -1;
@@ -29,8 +29,8 @@ namespace giai_thuat_csharp
 
         public static int BinarySearch(List<int> list, int x)
         {
-            int l = 0;
-            int r = list.Count - 1;
+            var l = 0;
+            var r = list.Count - 1;
             int mid;
 
             while (l <= r)

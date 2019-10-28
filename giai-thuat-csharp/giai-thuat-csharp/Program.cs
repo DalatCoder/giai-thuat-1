@@ -19,7 +19,7 @@ namespace giai_thuat_csharp
 
         static void ChayChuongTrinh()
         {
-            const int soMenu = 5;
+            const int soMenu = 9;
             int menu;
             var numbers = new List<int>();
 

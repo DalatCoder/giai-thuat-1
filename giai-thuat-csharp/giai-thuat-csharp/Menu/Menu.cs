@@ -12,7 +12,11 @@ namespace giai_thuat_csharp
             "Xuat mang hien tai",
             "Tim kiem tuyen tinh tra ve chi so",
             "Tim kiem tuyen tinh linh canh",
-            "Tim kiem nhi phan tra ve chi so"
+            "Tim kiem nhi phan tra ve chi so",
+            "Sap xep chon truc tiep",
+            "Sap xep chen truc tiep",
+            "Sap xep doi cho truc tiep",
+            "Sap xep noi bot"
         };
 
         public static void XuatMenu()
@@ -45,6 +49,8 @@ namespace giai_thuat_csharp
         public static void XuLyMenu(int menu, List<int> numbers)
         {
             int x, kq;
+            var buffer = new List<int>(numbers);
+            
             Console.Clear();
             Console.WriteLine("Chuc nang da chon: {0}: {1}.", menu, features[menu]);
 
@@ -93,8 +99,8 @@ namespace giai_thuat_csharp
                         Console.WriteLine("Tim thay phan tu {0} trong danh sach tai vi tri {1}.", x, kq+1);
 
                     break;
-                case 5:
-                    var buffer = SortUtil.SortInc(numbers);
+                case 5: 
+                    SortUtil.NoiBot(buffer);
                     Console.WriteLine("Danh sach sau khi sap xep tang dan: ");
                     Utils.DisplayList(buffer);
 
@@ -108,6 +114,43 @@ namespace giai_thuat_csharp
                         Console.WriteLine("Tim thay phan tu {0} trong danh sach tai vi tri {1}.", x, kq+1);
 
                     break;
+                case 6:
+                    Console.WriteLine("Danh sach hien tai: ");
+                    Utils.DisplayList(numbers);
+
+                    Console.WriteLine("Danh sach sau khi sap xep tang dan bang phuong phap chon truc tiep");
+                    SortUtil.ChonTrucTiep(buffer);
+                    Utils.DisplayList(buffer);
+
+                    break;
+                case 7:
+                    Console.WriteLine("Danh sach hien tai: ");
+                    Utils.DisplayList(numbers);
+
+                    Console.WriteLine("Danh sach sau khi sap xep tang dan bang phuong phap chen truc tiep");
+                    SortUtil.ChenTrucTiep(buffer);
+                    Utils.DisplayList(buffer);
+
+                    break;
+                case 8:
+                    Console.WriteLine("Danh sach hien tai: ");
+                    Utils.DisplayList(numbers);
+
+                    Console.WriteLine("Danh sach sau khi sap xep tang dan bang phuong phap doi cho truc tiep");
+                    SortUtil.DoiChoTrucTiep(buffer);
+                    Utils.DisplayList(buffer);
+
+                    break;
+                case 9:
+                    Console.WriteLine("Danh sach hien tai: ");
+                    Utils.DisplayList(numbers);
+
+                    Console.WriteLine("Danh sach sau khi sap xep tang dan bang phuong phap noi bot");
+                    SortUtil.NoiBot(buffer);
+                    Utils.DisplayList(buffer);
+
+                    break;
+
             }
 
             Console.ReadLine();
