@@ -6,7 +6,7 @@ namespace giai_thuat_csharp
 {
     public class FileUtil
     {
-        public static List<int> GetDataFromFile(string filename)
+        public static void GetDataFromFile(string filename, List<int> numbers)
         {
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
@@ -18,11 +18,8 @@ namespace giai_thuat_csharp
             var buffer = File.ReadAllLines(filePath);
             buffer = buffer[0].Split(' ');
 
-            var numbers = new List<int>();
             for (int i = 0; i < buffer.Length; i++)
                 numbers.Add(Convert.ToInt32(buffer[i]));
-
-            return numbers;
         }
     }
 }

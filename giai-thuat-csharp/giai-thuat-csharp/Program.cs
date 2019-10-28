@@ -26,7 +26,7 @@ namespace giai_thuat_csharp
             do
             {
                 menu = Menu.ChonMenu(soMenu);
-                Menu.XuLyMenu(menu,ref numbers);
+                Menu.XuLyMenu(menu, numbers);
             } while (menu > 0);
         }
     }

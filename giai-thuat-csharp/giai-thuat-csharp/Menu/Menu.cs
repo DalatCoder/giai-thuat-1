@@ -42,7 +42,7 @@ namespace giai_thuat_csharp
             return chon;
         }
 
-        public static void XuLyMenu(int menu, ref List<int> numbers)
+        public static void XuLyMenu(int menu, List<int> numbers)
         {
             int x, kq;
             Console.Clear();
@@ -57,7 +57,7 @@ namespace giai_thuat_csharp
                     Console.Write("Nhap ten tap tin de mo: ");
                     var filename = Console.ReadLine();
 
-                    numbers = FileUtil.GetDataFromFile(filename);
+                    FileUtil.GetDataFromFile(filename, numbers);
                     Console.WriteLine("Danh sach hien tai: ");
                     Utils.DisplayList(numbers);
                     break;
