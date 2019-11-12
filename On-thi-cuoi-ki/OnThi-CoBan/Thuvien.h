@@ -38,6 +38,8 @@ int TaoDSTuFile(LIST& list, char tenFile[]);
 void Xuat1NV(NhanVien nv);
 void XuatDS(LIST list);
 
+NODE* TimTenNV(LIST list, char ten[]);
+int TimViTriNODE(LIST list, NODE* node);
 
 //////////////////////////////////////////////////////
 /// DINH NGHIA HAM
@@ -122,7 +124,7 @@ int TaoDSTuFile(LIST& list, char tenFile[])
 
 void Xuat1NV(NhanVien nv)
 {
-	cout << nv.MaNV << '\t' << nv.Ho << '\t' << nv.TenLot << '\t' << nv.Ten << '\t' << nv.Ngay << '/' << nv.Thang << '/' << nv.Nam << '\t' << nv.DiaChi << '\t' << nv.Luong;
+	cout << nv.MaNV << '\t' << nv.Ho << '\t' << nv.TenLot << '\t' << nv.Ten << '\t' << nv.Ngay << '/' << nv.Thang << '/' << nv.Nam << '\t' << nv.DiaChi << '\t' << setiosflags(ios::fixed) << setprecision(2) << nv.Luong;
 	cout << endl;
 }
 
@@ -141,4 +143,40 @@ void XuatDS(LIST list)
 	cout << endl;
 }
 
+NODE* TimTenNV(LIST list, char ten[])
+{
+	NODE* result = NULL;
+
+	NODE* p;
+
+	p = list.pHead;
+
+	while (p != NULL)
+	{
+		if (strcmp(p->info.Ten, ten) == 0)
+			result = p;
+			
+		p = p->pNext;
+	}
+	
+	return result;
+}
+
+int TimViTriNODE(LIST list, NODE *node)
+{
+	int i = 1;
+
+	NODE* p = list.pHead;
+
+	while (p != NULL && p != node)
+	{
+		i++;
+		p = p->pNext;
+	}
+
+	if (p == NULL)
+		return -1;
+
+	return i;
+}
 
