@@ -40,6 +40,7 @@ void XuatDS(LIST list);
 
 NODE* TimTenNV(LIST list, char ten[]);
 int TimViTriNODE(LIST list, NODE* node);
+NODE* TimNVLuongCaoNhat(LIST list);
 
 //////////////////////////////////////////////////////
 /// DINH NGHIA HAM
@@ -178,5 +179,21 @@ int TimViTriNODE(LIST list, NODE *node)
 		return -1;
 
 	return i;
+}
+
+NODE* TimNVLuongCaoNhat(LIST list)
+{
+	NODE* res = list.pHead;
+	NODE* p = list.pHead;
+
+	while (p != NULL)
+	{
+		if (res->info.Luong < p->info.Luong)
+			res = p;
+
+		p = p->pNext;
+	}
+
+	return res;
 }
 

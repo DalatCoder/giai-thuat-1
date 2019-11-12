@@ -41,6 +41,17 @@ int main()
 			cout << "\nTim thay nhan vien co ten: " << nv.Ten << " trong danh sach.";
 			cout << "\nTai vi tri: #" << TimViTriNODE(list, res) << endl;
 		}
+
+		res = TimNVLuongCaoNhat(list);
+		if (res == NULL)
+			cout << "\nDanh sach hien tai rong.\n";
+		else
+		{
+			cout << "\nNhan vien co muc luong cao nhat: $" << res->info.Luong;
+			cout << "\nTai vi tri: #" << TimViTriNODE(list, res);
+			cout << "\nThong tin chi tiet cua nhan vien:\n";
+			Xuat1NV(res->info);
+		}
 	}
 	
 	return 0;
