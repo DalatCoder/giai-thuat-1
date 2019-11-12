@@ -42,6 +42,9 @@ NODE* TimTenNV(LIST list, char ten[]);
 int TimViTriNODE(LIST list, NODE* node);
 NODE* TimNVLuongCaoNhat(LIST list);
 
+int DemTheoLuong(LIST list, double luong);
+void XuatNVLuongLonHonX(LIST list, double luong);
+
 //////////////////////////////////////////////////////
 /// DINH NGHIA HAM
 //////////////////////////////////////////////////////
@@ -197,3 +200,46 @@ NODE* TimNVLuongCaoNhat(LIST list)
 	return res;
 }
 
+int DemTheoLuong(LIST list, double luong)
+{
+	int dem = 0;
+	NODE* p = list.pHead;
+
+	while (p != NULL)
+	{
+		if (p->info.Luong >= luong)
+			dem++;
+
+		p = p->pNext;
+	}
+
+	return dem;
+}
+
+void XuatNVLuongLonHonX(LIST list, double luong)
+{
+	LIST res;
+	TaoDSRong(res);
+
+	NODE* p = list.pHead;
+
+	while (p != NULL)
+	{
+		if (p->info.Luong >= luong)
+		{
+			NODE* new_node = TaoNODE(p->info);
+			ChenNODECuoi(res, new_node);
+		}
+
+		p = p->pNext;
+	}
+
+	if (KiemTraDSRong(res) == true)
+		cout << "\nKhong tim thay nhan vien co muc luong >= " << luong << endl;
+	else
+	{
+		cout << "\nTim thay " << DemTheoLuong(list, luong) << " nhan vien co muc luong >= " << luong;
+		cout << "\nDanh sach nhan vien chi tiet:\n";
+		XuatDS(res);
+	}
+}

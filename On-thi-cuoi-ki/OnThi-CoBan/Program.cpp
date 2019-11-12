@@ -52,6 +52,15 @@ int main()
 			cout << "\nThong tin chi tiet cua nhan vien:\n";
 			Xuat1NV(res->info);
 		}
+
+		cout << "\nNhap vao muc luong toi thieu: $";
+		cin >> nv.Luong;
+
+		kq = DemTheoLuong(list, nv.Luong);
+		if (kq == 0)
+			cout << "\nKhong tim thay nhan vien co muc luong >= " << nv.Luong << endl;
+		else
+			cout << "\nTim thay " << kq << " nhan vien co muc luong >= " << nv.Luong;
 	}
 	
 	return 0;
