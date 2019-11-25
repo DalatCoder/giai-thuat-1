@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{F6FD73E9-25F5-47F2-BF79-0DB916F88AD8}</ProjectGuid>
+    <ProjectGuid>{3A30CC20-72C7-4EF4-855F-F18246B2F1F0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>OnThiCoBan</RootNamespace>
+    <RootNamespace>OnThiCuoiKi</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,13 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Thuvien.h" />
+    <ClCompile Include="OnThiCuoiKi.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Program.cpp" />
+    <Text Include="nv.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="DSNhanVien.txt" />
+    <ClInclude Include="cautruc.h" />
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="thuvien.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

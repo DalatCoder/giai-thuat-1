@@ -15,18 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Thuvien.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Program.cpp">
+    <ClCompile Include="OnThiCuoiKi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="DSNhanVien.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
+    <Text Include="nv.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thuvien.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cautruc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
